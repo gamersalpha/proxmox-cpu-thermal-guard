@@ -1,0 +1,13 @@
+[Unit]
+Description=Automatic CPU Thermal Regulation for Proxmox
+After=multi-user.target
+
+[Service]
+ExecStart=/usr/local/bin/cooldown_cpu.sh
+Restart=always
+RestartSec=5
+StandardOutput=append:/var/log/cooldown_cpu.log
+StandardError=append:/var/log/cooldown_cpu.log
+
+[Install]
+WantedBy=multi-user.target
